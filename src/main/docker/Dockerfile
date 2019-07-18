@@ -14,11 +14,12 @@
 # limitations under the License.
 #
 
-#FROM openjdk:8-jre-slim
 FROM openjdk:8-jre-alpine
 
 RUN mkdir /app
-COPY target/${project.artifactId}.jar /app
-COPY target/libs /app/libs
+COPY ${project.artifactId}.jar /app
+COPY libs /app/libs
+
+EXPOSE 8090/tcp
 
 CMD ["java", "-jar", "/app/${project.artifactId}.jar"]
