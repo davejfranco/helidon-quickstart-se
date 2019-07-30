@@ -67,8 +67,8 @@ public class MainTest {
         Assertions.assertEquals(200, conn.getResponseCode(), "HTTP response2");
         jsonReader = Json.createReader(conn.getInputStream());
         jsonObject = jsonReader.readObject();
-        Assertions.assertEquals("Hola Joe!", jsonObject.getString("message"),
-                "hola Joe message");
+        Assertions.assertEquals("Hello Joe!", jsonObject.getString("message"),
+                "hello Joe message");
 
         conn = getURLConnection("PUT", "/greet/greeting/Hola");
         Assertions.assertEquals(200, conn.getResponseCode(), "HTTP response3");
@@ -76,8 +76,8 @@ public class MainTest {
         Assertions.assertEquals(200, conn.getResponseCode(), "HTTP response4");
         jsonReader = Json.createReader(conn.getInputStream());
         jsonObject = jsonReader.readObject();
-        Assertions.assertEquals("Hola Jose!", jsonObject.getString("message"),
-                "hola Jose message");
+        Assertions.assertEquals("Hello Jose!", jsonObject.getString("message"),
+                "hello Jose message");
     }
 
     private HttpURLConnection getURLConnection(String method, String path) throws Exception {
