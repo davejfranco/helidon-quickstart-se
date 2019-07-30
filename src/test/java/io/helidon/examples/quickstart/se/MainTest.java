@@ -70,7 +70,7 @@ public class MainTest {
         Assertions.assertEquals("Hello Joe!", jsonObject.getString("message"),
                 "hello Joe message");
 
-        conn = getURLConnection("PUT", "/greet/greeting/Hola");
+        conn = getURLConnection("PUT", "/greet/greeting/Hello");
         Assertions.assertEquals(200, conn.getResponseCode(), "HTTP response3");
         conn = getURLConnection("GET", "/greet/Jose");
         Assertions.assertEquals(200, conn.getResponseCode(), "HTTP response4");
