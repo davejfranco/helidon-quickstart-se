@@ -2,41 +2,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: quickstart-se-deploy
+  name: quickstart-deploy
+  labels:
+    app: quickstart-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: quickstart-se
+      app: quickstart-app
   template:
     metadata:
       labels:
-        app: quickstart-se
+        app: quickstart-app
     spec:
       containers:
-      - name: quickstart-se
+      - name: app
         image: phx.ocir.io/oraclegermanpab/helidon-quickstart-se:latest
         ports:
-        - name: quickstart-se
-          containerPort: 8090
-          protocol: TCP
+        - containerPort: 8090
       imagePullSecrets:
       - name: ocirsecret
-
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: quickstart-service
-  annotations:
-    service.beta.kubernetes.io/oci-load-balancer-shape: 100Mbps
-  labels:
-    app: quickstart-se
-spec:
-  type: LoadBalancer
-  selector:
-    app: quickstart-se
-  ports:
-  - port: 80
-    protocol: TCP
-      targetPort: 8090
