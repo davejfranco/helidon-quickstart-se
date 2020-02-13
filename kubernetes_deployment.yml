@@ -1,8 +1,8 @@
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: quickstart-se
+  name: quickstart-se-deploy
 spec:
   replicas: 1
   selector:
@@ -27,7 +27,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: quickstart-se
+  name: quickstart-service
   annotations:
     service.beta.kubernetes.io/oci-load-balancer-shape: 100Mbps
   labels:
