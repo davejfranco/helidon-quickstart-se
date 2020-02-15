@@ -22,3 +22,20 @@ spec:
         - containerPort: 8090
       imagePullSecrets:
       - name: ocirsecret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: quickstart-service
+  annotations:
+    service.beta.kubernetes.io/oci-load-balancer-shape: 100Mbps
+  labels:
+    app: quickstart-se
+spec:
+  type: LoadBalancer
+  selector:
+    app: quickstart-app
+  ports:
+  - port: 80
+    protocol: TCP
+      targetPort: 8090
