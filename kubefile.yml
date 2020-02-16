@@ -38,4 +38,4 @@ spec:
   ports:
   - port: 80
     protocol: TCP
-      targetPort: 8090
+    targetPort: 8090
