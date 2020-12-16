@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: phx.ocir.io/oraclegermanpab/helidon-quickstart-se:latest
+        image: iad.ocir.io/idlhjo6dp3bd/helidon-quickstart-se:latest
         ports:
         - containerPort: 8090
       imagePullSecrets:
